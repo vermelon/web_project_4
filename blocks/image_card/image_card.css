@@ -1,0 +1,12 @@
+@import url("__caption/image_card__caption.css");
+@import url("__like/image_card__like.css");
+@import url("__picture/image_card__picture.css");
+@import url("__text/image_card__text.css");
+
+
+.image_card {
+    width: 282px;
+    height: 361px;
+    background-color: white;
+    border-radius: 10px;
+}
