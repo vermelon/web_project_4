@@ -1,7 +1,7 @@
 .profile__image {
     height: 120px;
     width: 120px;
-    background: url("../../../Images/profile_pic.png");
-    background-size: 100%;
+    background: url("../../../Images/profile_pic.png") no-repeat;
+    background-size: cover;
     border-radius: 50%;
 }

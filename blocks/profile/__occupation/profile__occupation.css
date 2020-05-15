@@ -3,4 +3,19 @@
     font-size: 18px;
     line-height: 1;
     margin: 0;
+    padding-top: 16px;
+}
+
+@media screen and (max-width: 720px) {
+    .profile__occupation {
+        width: 280px;
+        text-align: center;
+}
+}
+
+@media screen and (max-width: 422px) {
+    .profile__occupation {
+        font-size: 14px;
+        width: 192px;
+}
 }

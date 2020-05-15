@@ -3,7 +3,14 @@
     height: 50px;
     width: 150px;
     border: 1px solid white;
-    margin-left: auto;
     margin-top: 35px;
     margin-bottom: 35px;
+    margin-left: auto;
+}
+
+@media screen and (max-width: 720px) {
+    .profile__add_button {
+        width: 282px;
+        margin: 36px 0 0;
+}
 }

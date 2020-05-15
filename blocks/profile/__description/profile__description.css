@@ -1,4 +1,27 @@
 .profile__description {
-    padding-left: 49px;
-    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 420px;
+    padding-left: 30px;
+    height: 70px;
+}
+
+@media screen and (max-width: 799px) {
+    .profile__description {
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .profile__description {
+    padding-top: 20px;
+    padding-left: 70px;
+}
+}
+
+@media screen and (max-width: 422px) {
+    .profile__description {
+    padding-left: 60px;
+    max-width: 250px;
+}
 }
