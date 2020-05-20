@@ -1,0 +1,9 @@
+pwd
+/Users/students-yandex/dev/web_project_3
+
+git branch
+* master
+develop
+
+touch .nojekyll # created an empty file named .nojekyll
+git add . && git commit -m "added nojekyll"
