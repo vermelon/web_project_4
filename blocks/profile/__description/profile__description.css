@@ -1,7 +1,7 @@
 .profile__description {
     display: flex;
     flex-wrap: wrap;
-    max-width: 420px;
+    max-width: 600px;
     padding-left: 30px;
     height: 70px;
 }
@@ -16,12 +16,12 @@
     .profile__description {
     padding-top: 20px;
     padding-left: 70px;
-}
+    }
 }
 
 @media screen and (max-width: 422px) {
     .profile__description {
     padding-left: 60px;
     max-width: 250px;
-}
+    }
 }

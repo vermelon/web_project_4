@@ -1,26 +1,9 @@
 .profile__name {
-    font-weight: normal;
-    font-size: 42px;
     padding-top: 0;
-    padding-right: 24px;
     margin: 0;
-    line-height: 1;
-    height: auto;
-    margin-block-start: 0;
-    margin-block-end: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 
-@media screen and (max-width: 799px) {
-    .profile__name {
-        font-size: 32px;
-}
-}
-
-@media screen and (max-width: 422px) {
-    .profile__name {
-        font-size: 22px;
-        padding-right: 12px;
-
-}
-}

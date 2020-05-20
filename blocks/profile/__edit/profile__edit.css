@@ -4,6 +4,7 @@
     width: 24px;
     border: 1px solid white;
     margin-top: 12px;
+    margin-right: 20px;
 }
 
 @media screen and (max-width: 799px) {
@@ -11,7 +12,7 @@
        margin-top: 9px;
        height: 20px;
        width: 20px;
-}
+    }
 }
 
 @media screen and (max-width: 422px) {
@@ -19,5 +20,5 @@
         height: 14px;
         width: 14px;
         margin-top: 6px;
-}
+    }
 }

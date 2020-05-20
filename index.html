@@ -8,69 +8,83 @@
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class = "page">
+    <div class = "popup popup__hidden">
+      <div class = "popup__content">
+        <input type="image" src="./Images/Close_Icon.svg" alt="X" name="close_button" class="popup__close_button"/>  
+        <form class = "popup__form">
+          <h1 class = "popup__title">Edit profile</h1>
+          <input type="text" placeholder="Name" id="name" class = "popup__field">
+          <input type="text" placeholder="About me" id="about" class = "popup__field">
+          <button type="submit" class="popup__save_button">Save</button>
+        </form >
+      </div>
+    </div>
     <header class="header">
-        <img class="header__logo" src="Images/logo.svg" alt="Around the US logo">
+      <img class="header__logo" src="Images/logo.svg" alt="Around the US logo">
     </header>
     <main class="main-content">
-        <section class = "profile">
-            <div class = "profile__image"></div>
-            <div class = "profile__description">
-            <p class = "profile__name">Jacques Cousteau</p>
+      <section class = "profile">
+        <div class = "profile__image"></div>
+        <div class = "profile__description">
+          <div class = "profile__name">
+            <p class = profile__name_text>Jacques Cousteau</p>
             <button class = "profile__edit"></button>
-            <p class = "profile__occupation">Explorer</p>
+          </div>
+          <p class = "profile__occupation">Explorer</p>
+        </div>
+        <button class = "profile__add_button"></button>
+      </section>
+      <section class = "images">
+        <ul class = "image_list">
+          <li class = "image_card">
+            <img class = "image_card__picture" src = "Images/kirill-pershin-1088404-unsplash_1.png" alt="Yosemite Valley">
+            <div class = "image_card__caption">
+              <p class = "image_card__text">Yosemite Valley</p>
+              <button class = "image_card__like"></button>
             </div>
-            <button class = "profile__add_button"></button>
-        </section>
-        <section class = "images">
-            <ul class = "image_list">
-                <li class = "image_card">
-                    <img class = "image_card__picture" src = "Images/kirill-pershin-1088404-unsplash_1.png" alt="Yosemite Valley">
-                    <div class = "image_card__caption">
-                    <p class = "image_card__text">Yosemite Valley</p>
-                    <button class = "image_card__like"></button>
-                    </div> 
-                </li>
-                <li class = "image_card">
-                    <img class = "image_card__picture" src = "Images/kirill-pershin-1404681-unsplash_2.png" alt="Lake Louise">
-                    <div class = "image_card__caption">
-                    <p class = "image_card__text">Lake Louise</p>
-                    <button class = "image_card__like"></button> 
-                </div>
-                </li>
-                <li class = "image_card">
-                    <img class = "image_card__picture" src = "Images/kirill-pershin-1556355-unsplash_3.png" alt="Bald Mountains">
-                    <div class = "image_card__caption">
-                    <p class = "image_card__text">Bald Mountains</p>
-                    <button class = "image_card__like"></button> 
-                </div>
-                </li>
-                <li class = "image_card">
-                    <img class = "image_card__picture" src = "Images/kirill-pershin-1404681-unsplash_4.png" alt="Latemar">
-                    <div class = "image_card__caption">
-                    <p class = "image_card__text">Latemar</p>
-                    <button class = "image_card__like"></button> 
-                </div>
-                </li>
-                <li class = "image_card">
-                    <img class = "image_card__picture" src = "Images/kirill-pershin-1556355-unsplash_5.png" alt="Vanois National Park">
-                    <div class = "image_card__caption">
-                    <p class = "image_card__text">Vanois National...</p>
-                    <button class = "image_card__like"></button> 
-                </div>
-                </li>
-                <li class = "image_card">
-                    <img class = "image_card__picture" src = "Images/kirill-pershin-1088404-unsplash_6.png" alt="Lago di Braies">
-                    <div class = "image_card__caption">
-                    <p class = "image_card__text">Lago di Braies</p>
-                    <button class = "image_card__like"></button> 
-                </div>
-                </li>
-            </ul>
-        </section>
+          </li>
+          <li class = "image_card">
+            <img class = "image_card__picture" src = "Images/kirill-pershin-1404681-unsplash_2.png" alt="Lake Louise">
+            <div class = "image_card__caption">
+              <p class = "image_card__text">Lake Louise</p>
+              <button class = "image_card__like"></button> 
+            </div>
+          </li>
+          <li class = "image_card">
+            <img class = "image_card__picture" src = "Images/kirill-pershin-1556355-unsplash_3.png" alt="Bald Mountains">
+            <div class = "image_card__caption">
+              <p class = "image_card__text">Bald Mountains</p>
+              <button class = "image_card__like"></button> 
+            </div>
+          </li>
+          <li class = "image_card">
+            <img class = "image_card__picture" src = "Images/kirill-pershin-1404681-unsplash_4.png" alt="Latemar">
+            <div class = "image_card__caption">
+              <p class = "image_card__text">Latemar</p>
+              <button class = "image_card__like"></button> 
+            </div>
+          </li>
+          <li class = "image_card">
+            <img class = "image_card__picture" src = "Images/kirill-pershin-1556355-unsplash_5.png" alt="Vanois National Park">
+            <div class = "image_card__caption">
+              <p class = "image_card__text">Vanois National...</p>
+              <button class = "image_card__like"></button> 
+            </div>
+          </li>
+          <li class = "image_card">
+            <img class = "image_card__picture" src = "Images/kirill-pershin-1088404-unsplash_6.png" alt="Lago di Braies">
+            <div class = "image_card__caption">
+              <p class = "image_card__text">Lago di Braies</p>
+              <button class = "image_card__like"></button> 
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
- <section class="footer">
-    <p class = "footer__copyright">
+    <section class="footer">
+      <p class = "footer__copyright">
         © 2020. Veronika Bowersock
-    </p>
- </section>    
+      </p>
+    </section>
+    <script src="script.js"></script>   
   </body>
