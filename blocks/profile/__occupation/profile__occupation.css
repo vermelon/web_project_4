@@ -4,11 +4,15 @@
     line-height: 1;
     margin: 0;
     padding-top: 16px;
+    max-width: 450px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 720px) {
     .profile__occupation {
-        width: 280px;
+        max-width: 280px;
         text-align: center;
     }
 }
@@ -16,6 +20,6 @@
 @media screen and (max-width: 422px) {
     .profile__occupation {
         font-size: 14px;
-        width: 192px;
+        max-width: 192px;
     }
 }

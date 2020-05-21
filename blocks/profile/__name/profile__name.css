@@ -6,4 +6,16 @@
     flex-direction: row;
 }
 
+@media screen and (max-width: 720px) {
+    .profile__name {
+        padding-left: 40px;
+    }
+}
+
+@media screen and (max-width: 422px) {
+    .profile__name {
+        padding-left: 20px;
+    }
+}
+
 
