@@ -14,3 +14,10 @@
         height: 230px;
     }
 }
+
+@media screen and (max-width: 380px) {
+    .popup__form {
+        width: 280px;
+        height: 200px;
+    }
+}

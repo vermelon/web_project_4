@@ -1,10 +1,10 @@
-let formElement = document.querySelector('.popup__form')
+const formElement = document.querySelector('.popup__form')
 let editBtn = document.querySelector('.profile__edit');
 let popup = document. querySelector('.popup');
-let closePopup = document.querySelector('.popup__close_button')
+let closePopup = document.querySelector('.popup__close')
 let nameInput = document.getElementById("name");
 let aboutInput = document.getElementById('about')
-let nameOutput = document.querySelector('.profile__name_text')
+let nameOutput = document.querySelector('.profile__text')
 let aboutOutput = document.querySelector('.profile__occupation')
 
 

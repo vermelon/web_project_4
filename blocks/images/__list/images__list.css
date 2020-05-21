@@ -1,4 +1,4 @@
-.image_list {
+.images__list {
     display: grid;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(3, auto);
@@ -10,14 +10,14 @@
 }
 
 @media screen and (max-width: 935px) {
-    .image_list {
+    .images__list {
     width: auto;
     grid-template-columns: repeat(2, 282px);
     }
 }
 
 @media screen and (max-width: 600px) {
-    .image_list {
+    .images__list {
     width: auto;
     grid-template-columns: 282px;
     }

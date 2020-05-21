@@ -4,7 +4,7 @@
     width: 24px;
     border: 1px solid white;
     margin-top: 12px;
-    margin-right: 20px;
+    padding: 0;
 }
 
 @media screen and (max-width: 799px) {

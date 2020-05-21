@@ -1,4 +1,4 @@
-.profile__add_button {
+.profile__add {
     background: url("../../../Images/plus.svg") no-repeat center;
     height: 50px;
     width: 150px;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 720px) {
-    .profile__add_button {
+    .profile__add {
         width: 282px;
         margin: 36px 0 0;
     }

@@ -1,9 +1,9 @@
-@import url("./__close_button/popup__close_button.css");
+@import url("./__close_button/popup__close.css");
 @import url("./__content/popup__content.css");
 @import url("./__field/popup__field.css");
 @import url("./__form/popup__form.css");
 @import url("./__hidden/popup__hidden.css");
-@import url("./__save_button/popup__save_button.css");
+@import url("./__save_button/popup__save.css");
 @import url("./__title/popup__title.css");
 
 .popup {
