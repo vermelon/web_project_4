@@ -1,5 +1,9 @@
+@import url("./_fullscreen/images__picture_fullscreen.css");
+
 .images__picture {
     width: 285px;
     height: 285px;
     background-size: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }

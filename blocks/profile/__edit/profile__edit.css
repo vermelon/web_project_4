@@ -7,6 +7,11 @@
     padding: 0;
 }
 
+.profile__edit:hover{
+    opacity: 0.6;
+    transition: opacity 0.2s ease-in-out;
+}
+
 @media screen and (max-width: 799px) {
     .profile__edit {
        margin-top: 9px;

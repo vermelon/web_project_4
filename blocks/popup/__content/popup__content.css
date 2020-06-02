@@ -1,3 +1,5 @@
+@import url("./_fullscreen/popup__content_fullscreen.css");
+
 .popup__content {
     background: none;
     position: fixed;

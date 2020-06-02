@@ -25,54 +25,6 @@
       </section>
       <section class = "images">
         <ul class = "images__list">
-          <li class = "images__card">
-            <div class = "images__picture" style="background-image: url('Images/kirill-pershin-1088404-unsplash_1.png')">
-            </div>
-            <div class = "images__caption">
-              <p class = "images__text">Yosemite Valley</p>
-              <button class = "images__like"></button>
-            </div>
-          </li>
-          <li class = "images__card">
-            <div class = "images__picture" style="background-image: url('Images/kirill-pershin-1404681-unsplash_2.png')">
-            </div>
-            <div class = "images__caption">
-              <p class = "images__text">Lake Louise</p>
-              <button class = "images__like"></button> 
-            </div>
-          </li>
-          <li class = "images__card">
-            <div class = "images__picture" style="background-image: url('Images/kirill-pershin-1556355-unsplash_3.png')">
-            </div>
-            <div class = "images__caption">
-              <p class = "images__text">Bald Mountains</p>
-              <button class = "images__like"></button> 
-            </div>
-          </li>
-          <li class = "images__card">
-            <div class = "images__picture" style="background-image: url('Images/kirill-pershin-1404681-unsplash_4.png')">
-            </div>
-            <div class = "images__caption">
-              <p class = "images__text">Latemar</p>
-              <button class = "images__like"></button> 
-            </div>
-          </li>
-          <li class = "images__card">
-            <div class = "images__picture" style="background-image: url('Images/kirill-pershin-1556355-unsplash_5.png')">
-            </div>
-            <div class = "images__caption">
-              <p class = "images__text">Vanois National Park</p>
-              <button class = "images__like"></button> 
-            </div>
-          </li>
-          <li class = "images__card">
-            <div class = "images__picture" style="background-image: url('Images/kirill-pershin-1088404-unsplash_6.png')">
-            </div>
-            <div class = "images__caption">
-              <p class = "images__text">Lago di Braies</p>
-              <button class = "images__like"></button> 
-            </div>
-          </li>
         </ul>
       </section>
     </main>
@@ -81,16 +33,34 @@
         © 2020. Veronika Bowersock
       </p>
     </section>
-    <div class = "popup popup_hidden">
+    <template id ="images__card">
+      <li class = "images__card">
+        <div class = "images__picture">
+          <button class = "images__delete"></button>
+        </div>
+        <div class = "images__caption">
+          <p class = "images__text"></p>
+          <button class = "images__like"></button> 
+        </div>
+      </li>
+    </template>
+    <div class = "popup popup_form popup_hidden">
       <div class = "popup__content">
-        <button name="close_button" class="popup__close"> </button>
         <form class = "popup__form">
-          <h1 class = "popup__title">Edit profile</h1>
-          <input type="text" placeholder="Name" id="name" class = "popup__field popup__field_name">
-          <input type="text" placeholder="About me" id="about" class = "popup__field popup__field_about">
-          <button type="submit" class="popup__save">Save</button>
+          <button name="close_button" class="popup__close popup__close_form"> </button>
+          <h1 class = "popup__title"></h1>
+          <input type="text" id="name" class = "popup__field popup__field_name">
+          <input type="text" id="about" class = "popup__field popup__field_about">
+          <button type="submit" class="popup__save"></button>
         </form >
       </div>
+    </div>
+    <div class = "popup popup_image popup_hidden">
+      <figure class = "popup__content_fullscreen">
+        <button name="close_button" class="popup__close popup__close_image"> </button>  
+        <img class = "images__picture_fullscreen" src="" alt = "">
+        <figcaption class = "images__text_fullscreen">adfasdgdas</figcaption>
+      </figure>
     </div>
     <script src="script.js"></script>   
   </body>

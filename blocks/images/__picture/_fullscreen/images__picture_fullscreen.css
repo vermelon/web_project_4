@@ -1,0 +1,5 @@
+.images__picture_fullscreen {
+  max-height: 75vh;
+  max-width: 75vw;
+  position: relative;
+}
