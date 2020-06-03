@@ -44,23 +44,34 @@
         </div>
       </li>
     </template>
-    <div class = "popup popup_form popup_hidden">
+    <div class = "popup popup_form-edit popup_hidden">
       <div class = "popup__content">
-        <form class = "popup__form">
-          <button name="close_button" class="popup__close popup__close_form"> </button>
-          <h1 class = "popup__title"></h1>
-          <input type="text" id="name" class = "popup__field popup__field_name">
-          <input type="text" id="about" class = "popup__field popup__field_about">
-          <button type="submit" class="popup__save"></button>
+        <form class = "popup__form popup__form_edit">
+          <button name="close_button" class="popup__close popup__close_form-edit"> </button>
+          <h1 class = "popup__title">Edit Profile</h1>
+          <input type="text" id="name" placeholder="Name" class = "popup__field popup__field_name">
+          <input type="text" id="about" placeholder = "About" class = "popup__field popup__field_about">
+          <button type="submit" class="popup__save">Save</button>
+        </form >
+      </div>
+    </div>
+    <div class = "popup popup_form-add popup_hidden">
+      <div class = "popup__content">
+        <form class = "popup__form popup__form_add">
+          <button name="close_button" class="popup__close popup__close_form-add"> </button>
+          <h1 class = "popup__title">New Place</h1>
+          <input type="text" id="title" placeholder="Title" class = "popup__field popup__field_title">
+          <input type="text" id="link" placeholder="Image Link" class = "popup__field popup__field_link">
+          <button type="submit" class="popup__save">Create</button>
         </form >
       </div>
     </div>
     <div class = "popup popup_image popup_hidden">
-      <figure class = "popup__content_fullscreen">
+      <div class = "popup__content_fullscreen">
         <button name="close_button" class="popup__close popup__close_image"> </button>  
         <img class = "images__picture_fullscreen" src="" alt = "">
-        <figcaption class = "images__text_fullscreen">adfasdgdas</figcaption>
-      </figure>
+        <p class = "images__text_fullscreen"></p>
+      </div>
     </div>
     <script src="script.js"></script>   
   </body>

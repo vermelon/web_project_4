@@ -1,20 +1,23 @@
-const formElement = document.querySelector('.popup__form')
+const formElementEdit = document.querySelector('.popup__form_edit')
+const formElementAdd = document.querySelector('.popup__form_add')
 const editBtn = document.querySelector('.profile__edit');
 const addBtn = document.querySelector('.profile__add')
-const popupForm = document.querySelector('.popup_form');
-const popupImage = document.querySelector('.popup_image')
-const closePopupForm = document.querySelector('.popup__close_form')
+const popupFormEdit = document.querySelector('.popup_form-edit');
+const popupFormAdd = document.querySelector('.popup_form-add');
+const popupImage = document.querySelector('.popup_image');
+const closePopupFormEdit = document.querySelector('.popup__close_form-edit')
+const closePopupFormAdd = document.querySelector('.popup__close_form-add')
 const closePopupImage = document.querySelector('.popup__close_image')
-const popupTitle = document.querySelector('.popup__title')
 const nameInput = document.querySelector('.popup__field_name');
-const aboutInput = document.querySelector('.popup__field_about')
+const aboutInput = document.querySelector('.popup__field_about');
+const titleInput = document.querySelector('.popup__field_title');
+const linkInput = document.querySelector('.popup__field_link')
 const nameOutput = document.querySelector('.profile__text')
 const aboutOutput = document.querySelector('.profile__occupation')
-const popupSave = document.querySelector('.popup__save')
 const imagesList = document.querySelector(".images__list");
 
 
-let initialCards = [{
+const initialCards = [{
 
     name: "Yosemite Valley",
     link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
@@ -48,38 +51,39 @@ let initialCards = [{
 
 function renderCards(cardsArray) {
   imagesList.innerHTML = "";
+  cardsArray.forEach(element => imagesList.append(createCard(element.name, element.link)));
+}
+
+function createCard(name, link) {
   const imageTemplate = document.querySelector("#images__card").content;
-  cardsArray.forEach(element => {
-    const imageElement = imageTemplate.cloneNode(true);
-    const imgUrl = `url('${element.link}')`
-    imageElement.querySelector(".images__picture").style.backgroundImage = imgUrl;
-    imageElement.querySelector(".images__delete").addEventListener("click", evt => {
-      deleteCard(evt)
-    })
+  const imageElement = imageTemplate.cloneNode(true);
+  const imgUrl = `url('${link}')`
+  const imagesPicture = imageElement.querySelector(".images__picture")
+  const deleteBtn = imageElement.querySelector(".images__delete")
+  imagesPicture.style.backgroundImage = imgUrl;
+  deleteBtn.addEventListener("click", evt => {
+    deleteImage(evt)
+  }, false)
 
-    imageElement.querySelector(".images__picture").addEventListener("click", evt => {
-      toggleDisplayImage(evt)
-    })
-    imageElement.querySelector(".images__text").textContent = element.name;
-
-    imageElement.querySelector(".images__like").addEventListener("click", evt => {
-      evt.target.classList.toggle("images__like_active");
-    });
-    imagesList.append(imageElement);
+  imageElement.querySelector(".images__picture").addEventListener("click", evt => {
+    toggleDisplayImage(evt, )
   })
+  imageElement.querySelector(".images__text").textContent = name;
+
+  imageElement.querySelector(".images__like").addEventListener("click", evt => {
+    evt.target.classList.toggle("images__like_active");
+  })
+  return imageElement
 }
 
-function deleteCard(evt) {
+function deleteImage(evt) {
   evt.stopPropagation()
-  const parentElement = evt.target.parentElement.parentElement
-  const text = parentElement.querySelector(".images__text").textContent
-  initialCards = initialCards.filter(element => element.name !== text)
-  renderCards(initialCards)
+  evt.target.parentNode.parentNode.remove()
 }
 
-function toggleDisplayForm(evt) {
+function toggleDisplayForm(evt, form) {
   evt.preventDefault();
-  popupForm.classList.toggle("popup_hidden")
+  form.classList.toggle("popup_hidden")
 }
 
 function toggleDisplayImage(evt) {
@@ -91,45 +95,44 @@ function toggleDisplayImage(evt) {
 }
 
 
-function editProfile(evt) {
-  popupTitle.textContent = "Edit Profile"
-  nameInput.placeholder = "Name";
-  aboutInput.placeholder = "About"
-  popupSave.textContent = "Save"
+function editProfileForm(evt) {
   nameInput.value = nameOutput.textContent;
   aboutInput.value = aboutOutput.textContent;
-  toggleDisplayForm(evt);
+  toggleDisplayForm(evt, popupFormEdit);
 }
 
-function addPicture(evt) {
-  popupTitle.textContent = "New Place"
-  nameInput.placeholder = "Title";
-  aboutInput.placeholder = "Image link"
-  popupSave.textContent = "Create"
-  nameInput.value = null;
-  aboutInput.value = null;
-  toggleDisplayForm(evt);
+function addPictureForm(evt) {
+  titleInput.value = ""
+  linkInput.value = ""
+  toggleDisplayForm(evt, popupFormAdd);
 }
 
-function formSubmitHandler(evt) {
+function formSubmitHandlerEdit(evt) {
   evt.preventDefault();
-  if (popupTitle.textContent === "Edit Profile") {
-    nameOutput.textContent = nameInput.value;
-    aboutOutput.textContent = aboutInput.value;
-    toggleDisplayForm(evt);
-  } else {
-    initialCards.unshift({
-      name: nameInput.value,
-      link: aboutInput.value
-    })
-    toggleDisplayForm(evt);
-    renderCards(initialCards);
-  }
+  nameOutput.textContent = nameInput.value;
+  aboutOutput.textContent = aboutInput.value;
+  toggleDisplayForm(evt, popupFormEdit);
+}
+
+function formSubmitHandlerAdd(evt) {
+  const newCard = createCard(titleInput.value, linkInput.value)
+  imagesList.prepend(newCard)
+  toggleDisplayForm(evt, popupFormAdd);
 }
 
 renderCards(initialCards);
-formElement.addEventListener('submit', formSubmitHandler);
-editBtn.addEventListener('click', editProfile)
-addBtn.addEventListener('click', addPicture)
-closePopupForm.addEventListener('click', toggleDisplayForm)
+formElementEdit.addEventListener('submit', (event) => {
+  formSubmitHandlerEdit(event)
+});
+formElementAdd.addEventListener('submit', (event) => {
+  formSubmitHandlerAdd(event)
+})
+editBtn.addEventListener('click', editProfileForm)
+addBtn.addEventListener('click', addPictureForm)
+closePopupFormEdit.addEventListener('click', (event) => {
+  toggleDisplayForm(event, popupFormEdit)
+})
+closePopupFormAdd.addEventListener('click', (event) => {
+  toggleDisplayForm(event, popupFormAdd)
+})
 closePopupImage.addEventListener('click', toggleDisplayImage)
