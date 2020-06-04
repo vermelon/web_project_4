@@ -16,59 +16,59 @@
         <img class = "profile__image" src="Images/profile_pic.png" alt = "profile pic">
         <div class = "profile__description">
           <div class = "profile__name">
-            <p class = profile__text>Jacques Cousteau</p>
-            <button class = "profile__edit"></button>
+            <h1 class = profile__text>Jacques Cousteau</h1>
+            <button class = "profile__edit" aria-label="Edit profile"></button>
           </div>
           <p class = "profile__occupation">Explorer</p>
         </div>
-        <button class = "profile__add"></button>
+        <button class = "profile__add" aria-label="Add image"></button>
       </section>
       <section class = "images">
         <ul class = "images__list">
         </ul>
       </section>
     </main>
-    <section class="footer">
+    <footer>
       <p class = "footer__copyright">
         © 2020. Veronika Bowersock
       </p>
-    </section>
+    </footer>
     <template id ="images__card">
       <li class = "images__card">
         <div class = "images__picture">
-          <button class = "images__delete"></button>
+          <button class = "images__delete" aria-label="Delete image"></button>
         </div>
         <div class = "images__caption">
           <p class = "images__text"></p>
-          <button class = "images__like"></button> 
+          <button class = "images__like" aria-label="Like image"></button> 
         </div>
       </li>
     </template>
     <div class = "popup popup_form-edit popup_hidden">
       <div class = "popup__content">
         <form class = "popup__form popup__form_edit">
-          <button name="close_button" class="popup__close popup__close_form-edit"> </button>
+          <button name="close_button" class="popup__close popup__close_form-edit" aria-label="Close"> </button>
           <h1 class = "popup__title">Edit Profile</h1>
           <input type="text" id="name" placeholder="Name" class = "popup__field popup__field_name">
           <input type="text" id="about" placeholder = "About" class = "popup__field popup__field_about">
-          <button type="submit" class="popup__save">Save</button>
+          <button type="submit" class="popup__save" aria-label="Save">Save</button>
         </form >
       </div>
     </div>
     <div class = "popup popup_form-add popup_hidden">
       <div class = "popup__content">
         <form class = "popup__form popup__form_add">
-          <button name="close_button" class="popup__close popup__close_form-add"> </button>
+          <button name="close_button" class="popup__close popup__close_form-add" aria-label="Close popup"> </button>
           <h1 class = "popup__title">New Place</h1>
           <input type="text" id="title" placeholder="Title" class = "popup__field popup__field_title">
           <input type="text" id="link" placeholder="Image Link" class = "popup__field popup__field_link">
-          <button type="submit" class="popup__save">Create</button>
+          <button type="submit" class="popup__save" aria-label="Create">Create</button>
         </form >
       </div>
     </div>
     <div class = "popup popup_image popup_hidden">
       <div class = "popup__content_fullscreen">
-        <button name="close_button" class="popup__close popup__close_image"> </button>  
+        <button name="close_button" class="popup__close popup__close_image" aria-label="Close popup"> </button>  
         <img class = "images__picture_fullscreen" src="" alt = "">
         <p class = "images__text_fullscreen"></p>
       </div>
