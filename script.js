@@ -1,5 +1,7 @@
 const formElementEdit = document.querySelector('.popup__form_edit');
 const formElementAdd = document.querySelector('.popup__form_add');
+const popupAdd = document.querySelector(".popup_form-add");
+const popupEdit = document.querySelector(".popup_form-edit");
 const editBtn = document.querySelector('.profile__edit');
 const addBtn = document.querySelector('.profile__add');
 const popupFormEdit = document.querySelector('.popup_form-edit');
@@ -15,6 +17,7 @@ const linkInput = document.querySelector('.popup__field_link');
 const nameOutput = document.querySelector('.profile__text');
 const aboutOutput = document.querySelector('.profile__occupation');
 const imagesList = document.querySelector(".images__list");
+
 
 
 const initialCards = [{
@@ -61,6 +64,16 @@ function toggleDisplayImage(evt) {
   popupImage.querySelector(".images__picture_fullscreen").src = url.substring(5, url.length - 2);
   popupImage.querySelector(".images__text_fullscreen").textContent = caption;
   popupImage.querySelector(".images__picture_fullscreen").alt = caption;
+  document.addEventListener("keydown", (event) => {
+    if ((event.key == 'Escape' || event.key == 'Esc' || event.keyCode == 27)) {
+      closePopup(popupImage)
+    }
+  })
+  popupImage.addEventListener("click", () => {
+    if (event.target.classList.contains("popup")) {
+      closePopup(popupImage)
+    }
+  })
 }
 
 function createCard(name, link) {
@@ -93,13 +106,40 @@ function toggleDisplayForm(evt, form) {
   form.classList.toggle("popup_hidden")
 }
 
+function closePopup(popup) {
+  popup.classList.add("popup_hidden")
+}
+
+
 function editProfileForm(evt) {
+  document.addEventListener("keydown", (event) => {
+    if ((event.key == 'Escape' || event.key == 'Esc' || event.keyCode == 27)) {
+      closePopup(popupEdit)
+    }
+  })
+  popupEdit.addEventListener("click", () => {
+    if (event.target.classList.contains("popup")) {
+      closePopup(popupEdit)
+    }
+  })
+
   nameInput.value = nameOutput.textContent;
   aboutInput.value = aboutOutput.textContent;
   toggleDisplayForm(evt, popupFormEdit);
 }
 
 function addPictureForm(evt) {
+
+  document.addEventListener("keydown", (event) => {
+    if ((event.key == 'Escape' || event.key == 'Esc' || event.keyCode == 27)) {
+      closePopup(popupAdd)
+    }
+  })
+  popupAdd.addEventListener("click", () => {
+    if (event.target.classList.contains("popup")) {
+      closePopup(popupAdd)
+    }
+  })
   titleInput.value = ""
   linkInput.value = ""
   toggleDisplayForm(evt, popupFormAdd);
@@ -118,7 +158,9 @@ function formSubmitHandlerAdd(evt) {
   toggleDisplayForm(evt, popupFormAdd);
 }
 
+
 renderCards(initialCards);
+
 formElementEdit.addEventListener('submit', (event) => {
   formSubmitHandlerEdit(event)
 });

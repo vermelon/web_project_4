@@ -2,8 +2,12 @@
 @import url("./__content/popup__content.css");
 @import url("./__field/popup__field.css");
 @import url("./__form/popup__form.css");
-@import url("./__save_button/popup__save.css");
+@import url("./__save/popup__save.css");
 @import url("./__title/popup__title.css");
+@import url("./__field/_error/popup__field_error.css");
+@import url("./__input-error/popup__input-error.css");
+@import url("./__input-error/_active/popup__input-error_active.css");
+@import url("./__save/_inactive/popup__save_inactive.css");
 
 .popup {
     width: 100vw;
