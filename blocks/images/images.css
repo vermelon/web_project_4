@@ -6,6 +6,8 @@
 @import url("./__delete/images__delete.css");
 @import url("./__text/images__text.css");
 @import url("./__card/images__card.css");
+@import url("./__picture/_fullscreen/images__picture_fullscreen.css");
+@import url("./__text/_fullscreen/images__text_fullscreen.css");
 
 .images {
     width: 100%;

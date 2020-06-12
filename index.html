@@ -48,12 +48,12 @@
       <div class = "popup__content">
         <form class = "popup__form popup__form_edit" novalidate>
           <button name="close_button" class="popup__close popup__close_form-edit" aria-label="Close"> </button>
-          <h1 class = "popup__title">Edit Profile</h1>
+          <h2 class = "popup__title">Edit Profile</h2>
           <input type="text" placeholder="Name" id = "name-input" class = "popup__field popup__field_name"  required minlength="2" maxlength="40">
           <span class="popup__input-error" id="name-input-error"></span>
           <input type="text" placeholder = "About" id ="about-input" class = "popup__field popup__field_about" required minlength="2" maxlength="200">
           <span class="popup__input-error" id="about-input-error"></span> 
-          <input type="submit" class="popup__save" aria-label="Save" value="Save"></input>
+          <input type="submit" class="popup__save" aria-label="Save" value="Save">
         </form >
       </div>
     </div>
@@ -61,20 +61,20 @@
       <div class = "popup__content">
         <form class = "popup__form popup__form_add" novalidate>
           <button name="close_button" class="popup__close popup__close_form-add" aria-label="Close popup"> </button>
-          <h1 class = "popup__title">New Place</h1>
+          <h2 class = "popup__title">New Place</h2>
           <input type="text" placeholder="Title" id = "title-input" required minlength="1" maxlength="30" class = "popup__field popup__field_title">
           <span class="popup__input-error" id="title-input-error"></span>
           <input type="url" placeholder="Image Link" id = "link-input" required class = "popup__field popup__field_link">
           <span class="popup__input-error" id="link-input-error"></span>
-          <input type="submit" class="popup__save" aria-label="Save" value="Save"></input>
+          <input type="submit" class="popup__save" aria-label="Save" value="Save">
         </form >
       </div>
     </div>
     <div class = "popup popup_image popup_hidden">
-      <div class = "popup__content_fullscreen">
+      <div class = "popup__content popup__content_fullscreen">
         <button name="close_button" class="popup__close popup__close_image" aria-label="Close popup"> </button>  
-        <img class = "images__picture_fullscreen" src="" alt = "">
-        <p class = "images__text_fullscreen"></p>
+        <img class = "images__picture images__picture_fullscreen" src="" alt = "">
+        <p class = "images__text images__text_fullscreen"></p>
       </div>
     </div>
     <script src="script.js"></script> 

@@ -57,6 +57,11 @@ function deleteImage(evt) {
   evt.target.parentNode.parentNode.remove()
 }
 
+
+function closePopup(popup) {
+  popup.classList.add("popup_hidden")
+}
+
 function toggleDisplayImage(evt) {
   popupImage.classList.toggle("popup_hidden")
   const url = evt.target.style.backgroundImage
@@ -106,18 +111,13 @@ function toggleDisplayForm(evt, form) {
   form.classList.toggle("popup_hidden")
 }
 
-function closePopup(popup) {
-  popup.classList.add("popup_hidden")
-}
-
-
 function editProfileForm(evt) {
   document.addEventListener("keydown", (event) => {
     if ((event.key == 'Escape' || event.key == 'Esc' || event.keyCode == 27)) {
       closePopup(popupEdit)
     }
   })
-  popupEdit.addEventListener("click", () => {
+  popupEdit.addEventListener("click", (event) => {
     if (event.target.classList.contains("popup")) {
       closePopup(popupEdit)
     }
@@ -135,7 +135,7 @@ function addPictureForm(evt) {
       closePopup(popupAdd)
     }
   })
-  popupAdd.addEventListener("click", () => {
+  popupAdd.addEventListener("click", (event) => {
     if (event.target.classList.contains("popup")) {
       closePopup(popupAdd)
     }
