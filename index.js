@@ -1,5 +1,5 @@
 import Card from "./Card.js"
-import { renderCards, initialCards, imagesList } from "./Card.js"
+
 import {FormValidator, formElementAdd, formElementEdit, validationSettings} from "./FormValidator.js"
 
 
@@ -16,9 +16,48 @@ const titleInput = document.querySelector('.popup__field_title');
 const linkInput = document.querySelector('.popup__field_link');
 const nameOutput = document.querySelector('.profile__text');
 const aboutOutput = document.querySelector('.profile__occupation');
+const imagesList = document.querySelector(".images__list");
+const initialCards = [{
 
+  name: "Yosemite Valley",
+  link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+},
+{
 
-renderCards(initialCards);
+  name: "Lake Louise",
+  link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
+},
+{
+
+  name: "Bald Mountains",
+  link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+},
+{
+
+  name: "Latemar",
+  link: "https://code.s3.yandex.net/web-code/latemar.jpg"
+},
+{
+
+  name: "Vanois National Park",
+  link: "https://code.s3.yandex.net/web-code/vanois.jpg"
+},
+{
+
+  name: "Lago di Braies",
+  link: "https://code.s3.yandex.net/web-code/lago.jpg"
+}
+];
+
+function renderCards(cardsArray) {
+  cardsArray.forEach((item) => {
+    const card = new Card(item);
+    const cardElement = card.createCard(item.link, item.name);
+    imagesList.append(cardElement)
+    console.log(cardElement)
+  })
+}
+
 const formEditValidator = new FormValidator(validationSettings, formElementEdit);
 formEditValidator.enableValidation(validationSettings)
 const formAddValidator = new FormValidator(validationSettings, formElementAdd);
@@ -114,3 +153,5 @@ closePopupFormEdit.addEventListener('click', (event) => {
 closePopupFormAdd.addEventListener('click', (event) => {
   toggleDisplayForm(event, popupFormAdd)
 })
+
+renderCards(initialCards);

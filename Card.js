@@ -2,58 +2,27 @@ const popupImageContainer = document.querySelector('.popup_image');
 const popupImage = document.querySelector('.images__picture_fullscreen')
 const popupImageCaption = document.querySelector('.images__text_fullscreen')
 const closePopupImage = document.querySelector('.popup__close_image');
-export const imagesList = document.querySelector(".images__list");
-export const initialCards = [{
 
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-  },
-  {
-
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-  },
-  {
-
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-  },
-  {
-
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-  },
-  {
-
-    name: "Vanois National Park",
-    link: "https://code.s3.yandex.net/web-code/vanois.jpg"
-  },
-  {
-
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
-];
 
 export default class Card {
-  constructor(data) {
+  constructor(data, template) {
     this._name = data.name
     this._link = data.link
+    this._template = document.querySelector("#images__card")
   }
 
   _getTemplate() {
-    const cardElement = document
-      .querySelector("#images__card")
-      .content
-      .cloneNode(true);
-
-    return cardElement;
+    const _cardElement = this._template.content.cloneNode(true);
+    return _cardElement;
   }
 
-  _deleteImage(event) {
-    event.target.parentNode.parentNode.remove()
-    event.stopPropagation()
-  }
+  _deleteImage() {
+    this.place = this._getTemplate().querySelector('.images__card')
+    console.log(this.place)
+    this.place.remove()
+    event.stopPropagation
+
+}
 
   _handleOpenPopup() {
     popupImageContainer.classList.remove("popup_hidden");
@@ -64,7 +33,8 @@ export default class Card {
   _handleClosePopup() {
     popupImageContainer.classList.add("popup_hidden");
     popupImage.src = "";
-    popupImage.alt, popupImageCaption.textContent = "";
+    popupImage.alt = "", 
+    popupImageCaption.textContent = "";
   }
 
   _setEventListeners() {
@@ -79,8 +49,8 @@ export default class Card {
     like.addEventListener("click", () => {
       like.classList.toggle("images__like_active");
     })
-    deleteBtn.addEventListener("click", (event) => {
-      this._deleteImage(event)
+    deleteBtn.addEventListener("click", () => {
+      this._deleteImage()
     }, false);
     popupImage.addEventListener("click", () => {
       if (event.target.classList.contains("popup")) {
@@ -98,10 +68,3 @@ export default class Card {
   }
 }
 
-export function renderCards(cardsArray) {
-  cardsArray.forEach((item) => {
-    const card = new Card(item);
-    const cardElement = card.createCard(item.link, item.name);
-    imagesList.append(cardElement)
-  })
-}
