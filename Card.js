@@ -5,23 +5,28 @@ const closePopupImage = document.querySelector('.popup__close_image');
 
 
 export default class Card {
-  constructor(data, template) {
+  constructor(data, _template) {
     this._name = data.name
     this._link = data.link
     this._template = document.querySelector("#images__card")
   }
+
+
 
   _getTemplate() {
     const _cardElement = this._template.content.cloneNode(true);
     return _cardElement;
   }
 
-  _deleteImage() {
-    this.place = this._getTemplate().querySelector('.images__card')
-    console.log(this.place)
-    this.place.remove()
-    event.stopPropagation
+  _getPlace(){
+    this._place = this._getTemplate().querySelector('.images__card')
+    return this._place
+  }
 
+  _deleteImage() {
+    this._place.remove();
+    event.stopPropagation();
+    
 }
 
   _handleOpenPopup() {
@@ -52,7 +57,7 @@ export default class Card {
     deleteBtn.addEventListener("click", () => {
       this._deleteImage()
     }, false);
-    popupImage.addEventListener("click", () => {
+    popupImage.addEventListener("click", (event) => {
       if (event.target.classList.contains("popup")) {
         closePopup(popupImage)
       }
@@ -64,6 +69,7 @@ export default class Card {
     this._element.querySelector(".images__picture").style.backgroundImage = `url('${link}')`;
     this._element.querySelector(".images__text").textContent = name;
     this._setEventListeners();
+    this._place = this._element.querySelector(".images__card");
     return this._element;
   }
 }
