@@ -1,5 +1,5 @@
 import Card from "./Card.js"
-
+import {closeAllPopup, toggleDisplayForm} from "./utils.js";
 import {FormValidator, formElementAdd, formElementEdit, validationSettings} from "./FormValidator.js"
 
 
@@ -63,39 +63,15 @@ formEditValidator.enableValidation(validationSettings)
 const formAddValidator = new FormValidator(validationSettings, formElementAdd);
 formAddValidator.enableValidation(validationSettings)
 
-
-document.addEventListener("keydown", (event) => {
-  if ((event.key == 'Escape' || event.key == 'Esc' || event.keyCode == 27)) {
-    closePopup(popupImage)
-  }
-})
-
-function closePopup(popup) {
-  popup.classList.add("popup_hidden")
-}
-
-function toggleDisplayForm(evt, form) {
-  evt.preventDefault();
-  form.classList.toggle("popup_hidden")
-  const elements = form.querySelectorAll(".popup__input-error")
-  elements.forEach(element => {
-    element.classList.remove("popup__input-error_active")
-  })
-  const fields = form.querySelectorAll(".popup__field")
-  fields.forEach(field => {
-    field.classList.remove("popup__field_error")
-  }); 
-}
-
 function editProfileForm(evt) {
   document.addEventListener("keydown", (event) => {
     if ((event.key == 'Escape' || event.key == 'Esc' || event.keyCode == 27)) {
-      closePopup(popupFormEdit)
+      closeAllPopup(popupFormEdit)
     }
   })
   popupFormEdit.addEventListener("click", (event) => {
     if (event.target.classList.contains("popup")) {
-      closePopup(popupFormEdit)
+      closeAllPopup(popupFormEdit)
     }
   })
 
@@ -108,12 +84,12 @@ function addPictureForm(evt) {
 
   document.addEventListener("keydown", (event) => {
     if ((event.key == 'Escape' || event.key == 'Esc' || event.keyCode == 27)) {
-      closePopup(popupFormAdd)
+      closeAllPopup(popupFormAdd)
     }
   })
   popupFormAdd.addEventListener("click", (event) => {
     if (event.target.classList.contains("popup")) {
-      closePopup(popupFormAdd)
+      closeAllPopup(popupFormAdd)
     }
   })
   titleInput.value = ""

@@ -1,6 +1,5 @@
-const popupImageContainer = document.querySelector('.popup_image');
-const popupImage = document.querySelector('.images__picture_fullscreen')
-const popupImageCaption = document.querySelector('.images__text_fullscreen')
+import { handleCloseImagePopup, handleOpenImagePopup } from "./utils.js";
+
 const closePopupImage = document.querySelector('.popup__close_image');
 
 
@@ -11,45 +10,18 @@ export default class Card {
     this._template = document.querySelector("#images__card")
   }
 
-
-
-  _getTemplate() {
-    const _cardElement = this._template.content.cloneNode(true);
-    return _cardElement;
-  }
-
-  _getPlace(){
-    this._place = this._getTemplate().querySelector('.images__card')
-    return this._place
-  }
-
   _deleteImage() {
     this._place.remove();
-    event.stopPropagation();
-    
+    event.stopPropagation();  
 }
-
-  _handleOpenPopup() {
-    popupImageContainer.classList.remove("popup_hidden");
-    popupImage.src = this._link;
-    popupImage.alt, popupImageCaption.textContent = this._name;
-  }
-
-  _handleClosePopup() {
-    popupImageContainer.classList.add("popup_hidden");
-    popupImage.src = "";
-    popupImage.alt = "", 
-    popupImageCaption.textContent = "";
-  }
-
   _setEventListeners() {
     const like = this._element.querySelector(".images__like")
     const deleteBtn = this._element.querySelector(".images__delete")
     this._element.querySelector(".images__picture").addEventListener('click', () => {
-      this._handleOpenPopup();
+      handleOpenImagePopup(this._link, this._name);
     })
     closePopupImage.addEventListener('click', () => {
-      this._handleClosePopup();
+      handleCloseImagePopup();
     })
     like.addEventListener("click", () => {
       like.classList.toggle("images__like_active");
@@ -57,15 +29,10 @@ export default class Card {
     deleteBtn.addEventListener("click", () => {
       this._deleteImage()
     }, false);
-    popupImage.addEventListener("click", (event) => {
-      if (event.target.classList.contains("popup")) {
-        closePopup(popupImage)
-      }
-    })
   }
 
   createCard(link, name) {
-    this._element = this._getTemplate();
+    this._element = this._template.content.cloneNode(true);
     this._element.querySelector(".images__picture").style.backgroundImage = `url('${link}')`;
     this._element.querySelector(".images__text").textContent = name;
     this._setEventListeners();
