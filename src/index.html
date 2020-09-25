@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Around the U.S.</title>
-    <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class = "page">
     <header class="header">
@@ -47,11 +46,11 @@
     <div class = "popup popup_form-edit popup_hidden">
       <div class = "popup__content">
         <form class = "popup__form popup__form_edit" novalidate>
-          <button name="close_button" class="popup__close popup__close_form-edit" aria-label="Close"> </button>
+          <button name="close_button" class="popup__close popup__close_form-edit" type="reset" aria-label="Close"> </button>
           <h2 class = "popup__title">Edit Profile</h2>
-          <input type="text" placeholder="Name" id = "name-input" class = "popup__field popup__field_name"  required minlength="2" maxlength="40">
+          <input type="text" placeholder="Name" id = "name-input" class = "popup__field popup__field_name"  name = "name" required minlength="2" maxlength="40">
           <span class="popup__input-error" id="name-input-error"></span>
-          <input type="text" placeholder = "About" id ="about-input" class = "popup__field popup__field_about" required minlength="2" maxlength="200">
+          <input type="text" placeholder = "About" id ="about-input" class = "popup__field popup__field_about" name = "about" required minlength="2" maxlength="200">
           <span class="popup__input-error" id="about-input-error"></span> 
           <input type="submit" class="popup__save" aria-label="Save" value="Save">
         </form >
@@ -60,11 +59,11 @@
     <div class = "popup popup_form-add popup_hidden">
       <div class = "popup__content">
         <form class = "popup__form popup__form_add" novalidate>
-          <button name="close_button" class="popup__close popup__close_form-add" aria-label="Close popup"> </button>
+          <button name="close_button" class="popup__close popup__close_form-add" type="reset" aria-label="Close popup"> </button>
           <h2 class = "popup__title">New Place</h2>
-          <input type="text" placeholder="Title" id = "title-input" required minlength="1" maxlength="30" class = "popup__field popup__field_title">
+          <input type="text" placeholder="Title" id = "title-input" required minlength="1" maxlength="30" name = "name" class = "popup__field popup__field_title">
           <span class="popup__input-error" id="title-input-error"></span>
-          <input type="url" placeholder="Image Link" id = "link-input" required class = "popup__field popup__field_link">
+          <input type="url" placeholder="Image Link" id = "link-input" name="link" required class = "popup__field popup__field_link">
           <span class="popup__input-error" id="link-input-error"></span>
           <input type="submit" class="popup__save" aria-label="Save" value="Save">
         </form >
@@ -73,11 +72,10 @@
     <div class = "popup popup_image popup_hidden">
       <div class = "popup__content popup__content_fullscreen">
         <button name="close_button" class="popup__close popup__close_image" aria-label="Close popup"> </button>  
-        <img class = "images__picture images__picture_fullscreen" src="" alt = "">
+        <img class = "images__picture images__picture_fullscreen" src="#" alt = "">
         <p class = "images__text images__text_fullscreen"></p>
       </div>
     </div>
-    <script type="module" src="index.js"></script> 
   </body>
 
   
