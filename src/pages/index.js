@@ -41,13 +41,15 @@ const userInfo = new UserInfo({
 
 editBtn.addEventListener('click', () => {
   editPopup.open();
-  const newUserInfo = userInfo.getUserInfo()
+  formEditValidator.disableSubmitButton();
+  const newUserInfo = userInfo.getUserInfo();
   userName.value = newUserInfo.name;
   userAbout.value = newUserInfo.about;
 });
 
 addBtn.addEventListener('click', () => {
   addPopup.open();
+  formAddValidator.disableSubmitButton();
 });
 
 editPopup.setEventListeners();
