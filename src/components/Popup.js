@@ -34,7 +34,7 @@ export default class Popup {
     _handleOverlayClickClose(){
       this._container.addEventListener("click", (event) => {
         if (event.target === this._container){
-        this._container.classList.add("popup_hidden");
+        this.close();
       }
     })
     }

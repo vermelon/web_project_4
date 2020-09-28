@@ -6,6 +6,7 @@ export default class FormValidator {
     this._form = form;
     this._submitButton = this._form.querySelector(this._settings.submitButtonSelector)
     this._closeButton = this._form.querySelector(".popup__close");
+    this._inputList = Array.from(this._form.querySelectorAll(this._settings.inputSelector));
   }
 
   _showInputError(inputElement, errorMessage) {
@@ -47,7 +48,6 @@ export default class FormValidator {
   };
 
   _setEventListeners() {
-    this._inputList = Array.from(this._form.querySelectorAll(this._settings.inputSelector));
     this._toggleButtonState(this._inputList);
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
@@ -55,13 +55,10 @@ export default class FormValidator {
         this._toggleButtonState(this._inputList);
       });
     });
-    this._closeButton.addEventListener("click", () => {
-      this._resetErrors(this._inputList);
-    })
   };
 
-  _resetErrors(inputList) {
-    inputList.forEach((inputElement) => {
+  resetErrors() {
+    this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);   
   });
 }

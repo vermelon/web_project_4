@@ -3,7 +3,7 @@ export default class Card {
     this._name = name;
     this._link = link;
     this._template = template;
-    this.handleCardClick = handleCardClick;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -28,8 +28,7 @@ export default class Card {
 
   _setEventListeners() {
     this._elementImg.addEventListener('click', () => { 
-      console.log("this " + this)
-      this.handleCardClick(this._name, this._link);
+      this._handleCardClick(this._name, this._link);
     })
     this._likeBtn.addEventListener("click", () => {
       this._likeHandler();

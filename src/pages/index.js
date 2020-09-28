@@ -6,19 +6,19 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import FormValidator from "../components/FormValidator.js";
 import UserInfo from "../components/UserInfo.js";
-import {validationSettings, editBtn, addBtn, formElementEdit, formElementAdd, initialCards, userName, userAbout} from "../components/constants.js";
-
-let cards = [];
-for (const card of initialCards) {
-  let cardElement = new Card(card.name, card.link, "#images__card", handleCardClick);
-  cardElement = cardElement.createCard();
-  cards.push(cardElement);
-}
+import {validationSettings, editBtn, addBtn, formElementEdit, formElementAdd, initialCards, userName, userAbout} from "../utils/constants.js";
 
 const cardList = new Section({
-    items: cards,
-    renderer: (element) => {
-      cardList.addItem(element);
+    items: initialCards,
+    renderer: (item) => {
+      const card = new Card(
+        item.name,
+        item.link,
+        "#images__card",
+        handleCardClick
+      )
+      const newCard = card.createCard();
+      cardList.addItem(newCard);
     },
   },
   ".images__list"
@@ -54,10 +54,9 @@ editPopup.setEventListeners();
 addPopup.setEventListeners();
 
 const imagePopup = new PopupWithImage(".popup_image");
+imagePopup.setEventListeners();
 
 function handleCardClick(name, link) {
-  console.log("clicked")
-  imagePopup.setEventListeners();
   imagePopup.open(name, link);
 }
 
@@ -68,11 +67,9 @@ function formSubmitHandlerAdd(inputValues) {
     inputValues.link,
     "#images__card",
     handleCardClick
-    
   )
-    console.log(card)
-  card = card.createCard();
-  cardList.addItem(card);
+  const newCard = card.createCard();
+  cardList.addItem(newCard);
   addPopup.close();
 }
 
