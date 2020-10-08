@@ -39,7 +39,10 @@
         </div>
         <div class = "images__caption">
           <p class = "images__text"></p>
-          <button class = "images__like" aria-label="Like image"></button> 
+          <div class = "images__like">
+          <button class = "images__like-button" aria-label="Like image"></button>
+          <span class = "images__like-count"></span> 
+        </div>
         </div>
       </li>
     </template>
@@ -66,6 +69,15 @@
           <input type="url" placeholder="Image Link" id = "link-input" name="link" required class = "popup__field popup__field_link">
           <span class="popup__input-error" id="link-input-error"></span>
           <input type="submit" class="popup__save" aria-label="Save" value="Save">
+        </form >
+      </div>
+    </div>
+    <div class = "popup popup_confirm-delete popup_hidden">
+      <div class = "popup__content">
+        <form class = "popup__form popup__form_delete">
+          <button name="close_button" class="popup__close" type="reset" aria-label="Close"> </button>
+          <h2 class = "popup__title">Are you sure?</h2>  
+          <input type="button" class="popup__confirm" aria-label="Yes" value="Yes">
         </form >
       </div>
     </div>

@@ -1,15 +1,8 @@
-@import url("./_active/images__like_active.css");
-
 .images__like {
-    background: url("../../../Images/heart.svg") no-repeat center;
-    height: 19px;
+    height: 45px;
     width: 21px;
     border: none;
     margin: 0;
     padding: 0;
-}
-
-.images__like:hover{
-    opacity: 0.5;
-    transition: opacity 0.3s ease-in-out;
+    text-align: center;
 }

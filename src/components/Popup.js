@@ -10,6 +10,7 @@ export default class Popup {
       this._container.classList.remove("popup_hidden");
       this._handleEscCloseAdd();
     }
+
     close() {
       this._container.classList.add("popup_hidden");
       this._handleEscCloseRemove();
@@ -41,7 +42,9 @@ export default class Popup {
 
     _handleClickXClose(){
       this._close.addEventListener('click', () => {
+        console.log("close clicked")
         this.close();
+
       });
     }
   
