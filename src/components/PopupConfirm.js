@@ -4,12 +4,12 @@ export default class PopupConfirm extends Popup {
     constructor(selector, handleFormSubmit) {
         super(selector);
         this._handleFormSubmit = handleFormSubmit;
+        this._form = this._container.querySelector('.popup__form');
     }
 
     setEventListeners() {
-        console.log("setting event listeners")
         super.setEventListeners();
-        this._container.addEventListener('click', (event) => {
+        this._container.addEventListener('submit', (event) => {
             event.preventDefault();
             this._handleFormSubmit(this._cardId, this._card);
         });
@@ -20,4 +20,9 @@ export default class PopupConfirm extends Popup {
         this._card = card;
         super.open();
     }
+    
+  close() {
+    super.close();
+  }
+
 }

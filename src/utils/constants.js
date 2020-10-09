@@ -13,6 +13,11 @@ export const validationSettings = ({
   export  const addBtn = document.querySelector('.profile__add');
   export const formElementEdit = document.querySelector('.popup__form_edit');
   export  const formElementAdd = document.querySelector('.popup__form_add');
+  export const formElementEditAvatar = document.querySelector('.popup__form_avatar');
+  export const formElementDelete = document.querySelector('.popup__form_delete');
+  export const editAvatarBtn = document.querySelector('.profile__overlay_button');
+  export const avatar = document.querySelector('.profile__image');
+
   
   export  const initialCards = [{
   

@@ -11,6 +11,7 @@
 @import url("./__save/_inactive/popup__save_inactive.css");
 @import url("./__content/_fullscreen/popup__content_fullscreen.css");
 @import url("./__form/_delete/popup__form_delete.css");
+@import url("./__form/_avatar/popup__form_avatar.css");
 
 .popup {
     width: 100vw;

@@ -11,13 +11,13 @@
 @media screen and (max-width: 935px) {
     .images__list {
     width: auto;
-    grid-template-columns: repeat(2, 282px);
+    grid-template-columns: repeat(2, 285px);
     }
 }
 
 @media screen and (max-width: 600px) {
     .images__list {
     width: auto;
-    grid-template-columns: 282px;
+    grid-template-columns: 285px;
     }
 }

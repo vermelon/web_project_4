@@ -12,7 +12,10 @@
     </header>
     <main class="main-content">
       <section class = "profile">
-        <img class = "profile__image" src="Images/profile_pic.png" alt = "profile pic">
+        <img class = "profile__image" src="#" alt = "profile pic">
+        <div class = "profile__overlay">
+        <button class ="profile__overlay_button" aria-lable = "change avatar"></button>
+        </div>
         <div class = "profile__description">
           <div class = "profile__name">
             <h1 class = profile__text>Jacques Cousteau</h1>
@@ -75,9 +78,20 @@
     <div class = "popup popup_confirm-delete popup_hidden">
       <div class = "popup__content">
         <form class = "popup__form popup__form_delete">
-          <button name="close_button" class="popup__close" type="reset" aria-label="Close"> </button>
+          <button name="close_button" class="popup__close popup__close_form-edit" type="reset" aria-label="Close"> </button>
           <h2 class = "popup__title">Are you sure?</h2>  
-          <input type="button" class="popup__confirm" aria-label="Yes" value="Yes">
+          <input type="button" class="popup__save" aria-label="Yes" value="Yes">
+        </form >
+      </div>
+    </div>
+    <div class = "popup popup_form-avatar popup_hidden">
+      <div class = "popup__content">
+        <form class = "popup__form popup__form_avatar" novalidate>
+          <button name="close_button" class="popup__close popup__close_form-edit" type="reset" aria-label="Close"> </button>
+          <h2 class = "popup__title">Change profile picture</h2>
+          <input type="url" placeholder="Avatar Link" id = "link-input" name="link" required class = "popup__field popup__field_link">
+          <span class="popup__input-error" id="link-input-error"></span>
+          <input type="submit" class="popup__save" aria-label="Save" value="Save">
         </form >
       </div>
     </div>

@@ -42,7 +42,6 @@ export default class Popup {
 
     _handleClickXClose(){
       this._close.addEventListener('click', () => {
-        console.log("close clicked")
         this.close();
 
       });
