@@ -42,12 +42,10 @@ function isSaving (isLoading, form, initValue){
 
 getUserInfo();
 
-let cardList = getCards();
 
-function getCards() {
 api.getInitialCards() 
 .then((result)=> {
-   cardList = new Section({
+   const cardList = new Section({
     items: result,
     renderer: (item) => {
       const card = new Card(
@@ -74,10 +72,19 @@ return cardList
   cardList.renderAllItems();
   return cardList
 })
-.catch((err) => {
-  alert(err)
+.then((cardList)=>{
+  const addPopup = new PopupWithForm('.popup_form-add', formSubmitHandlerAdd, cardList);
+  addPopup.setEventListeners();
+  addBtn.addEventListener('click', () => {
+  addPopup.open();
+  formAddValidator.disableSubmitButton();
+  formAddValidator.resetErrors();
+});  
 })
-}
+.catch((err) => {
+  console.log(err)
+})
+
 
 function getUserInfo(){
 api.getUserInfo()
@@ -85,7 +92,7 @@ api.getUserInfo()
   userInfo.setUserInfo(result)
 })
   .catch((err)=> {
-   alert(err)
+   console.log(err)
 })
 }
 
@@ -95,7 +102,7 @@ function updateLikes(cardId, card, isLiked){
       card._likes = result.likes;
     })
   .catch((err) => {
-    alert(err);
+    console.log(err);
   })  
 }
 
@@ -109,7 +116,6 @@ const formAvatarValidator = new FormValidator(validationSettings, formElementEdi
 formAvatarValidator.enableValidation(validationSettings)
 
 const editPopup = new PopupWithForm('.popup_form-edit', formSubmitHandlerEdit);
-const addPopup = new PopupWithForm('.popup_form-add', formSubmitHandlerAdd);
 const deletePopup = new PopupConfirm('.popup_confirm-delete', formSubmitHandlerDelete);
 const avatarPopup = new PopupWithForm('.popup_form-avatar', formSubmitHandlerEditAvatar);
 
@@ -123,11 +129,6 @@ editBtn.addEventListener('click', () => {
   userAbout.value = newUserInfo.about;
 });
 
-addBtn.addEventListener('click', () => {
-  addPopup.open();
-  formAddValidator.disableSubmitButton();
-  formAddValidator.resetErrors();
-});
 
 editAvatarBtn.addEventListener('click', () => {
   avatarPopup.open();
@@ -136,7 +137,7 @@ editAvatarBtn.addEventListener('click', () => {
 })
 
 editPopup.setEventListeners();
-addPopup.setEventListeners();
+
 deletePopup.setEventListeners();
 avatarPopup.setEventListeners();
 
@@ -155,7 +156,7 @@ function handleLikeClick(cardId, card, isLiked){
   updateLikes(cardId, card, isLiked)
 }
 
-function formSubmitHandlerAdd(inputValues) {
+function formSubmitHandlerAdd(inputValues, cardList, addPopup) {
   const initValue = getButtonValue(formElementAdd)
   isSaving(true,formElementAdd,initValue)
   api.postNewCard(inputValues.name, inputValues.link)
@@ -180,7 +181,7 @@ return card
 })
   .catch((err)=> {
     isSaving(false,formElementAdd,initValue)
-    alert(err)
+    console.log(err)
 })
   .finally(()=>{
     isSaving(false,formElementAdd,initValue)
@@ -197,7 +198,7 @@ function formSubmitHandlerEdit(inputValues) {
   })
   .catch((err)=> {
     isSaving(false, formElementEdit, initValue)
-    alert(err)
+    console.log(err)
 })
   .finally(()=> {
     isSaving(false, formElementEdit, initValue)
@@ -216,7 +217,7 @@ function formSubmitHandlerDelete(cardId, card) {
   })
   .catch((err)=> {
     isSaving(false, formElementDelete, initValue)
-    alert(err)
+    console.log(err)
   })
   .finally(()=>{
     isSaving(false, formElementDelete, initValue)
@@ -233,7 +234,7 @@ function formSubmitHandlerEditAvatar(url) {
    })
    .catch((err)=> {
     isSaving(false, formElementEditAvatar, initValue)
-     alert(err)
+     console.log(err)
    })
   .finally(() => {
     isSaving(false, formElementEditAvatar, initValue)

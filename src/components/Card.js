@@ -13,12 +13,9 @@ export default class Card {
   }
 
   _isLikedByUser() {
-   for (let i =0; i<this._likes.length; i++ ){
-      if (this._likes[i]._id === this._currentUserId){
-    return true
-    }
-  }
-  return false
+    const equals = (element) => element._id === this._currentUserId
+    const result = this._likes.some(equals);
+    return result
   }
 
   _getTemplate() {
